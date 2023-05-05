@@ -1,6 +1,7 @@
 <!-- inspiration/källor för skriven kod nedanför: -->
 <!-- https://stackoverflow.com/questions/50981059/watch-route-object-on-vue-js  -->
-<!-- https://stackoverflow.com/questions/64078914/watch-changes-in-route-object-vue-router -->
+<!-- https://router.vuejs.org/guide/essentials/dynamic-matching.html -->
+<!-- https://router.vuejs.org/guide/ -->
 
 <script>
   import Search from './SearchField.vue'
