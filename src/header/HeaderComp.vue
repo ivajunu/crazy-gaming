@@ -1,9 +1,36 @@
+<!-- inspiration/källor för skriven kod nedanför: -->
+<!-- https://stackoverflow.com/questions/50981059/watch-route-object-on-vue-js  -->
+<!-- https://stackoverflow.com/questions/64078914/watch-changes-in-route-object-vue-router -->
+
 <script>
   import Search from './SearchField.vue'
 
   export default {
     components: {
       Search
+    },
+    data() {
+      return {
+        clicks: []
+      }
+    },
+    watch: {
+      $route() {
+        if (
+          this.$route.fullPath === '/all-products' ||
+          this.$route.fullPath.startsWith('/products/')
+        ) {
+          console.log(this.$route.fullPath)
+          console.log('1')
+          console.log('Du har klickat')
+          this.clicks = this.$route.fullPath
+          // sparar routepath i vuex nedan
+
+          this.$store.commit('statisticsLog', {
+            logClicks: this.clicks
+          })
+        }
+      }
     }
   }
 </script>

@@ -21,7 +21,8 @@
         email: '',
         message: '',
         check: false,
-        errors: false
+        errors: false,
+        popup: false
       }
     },
     methods: {
@@ -34,7 +35,12 @@
             email: this.email
           })
           this.$router.push({ path: '/confirmation' })
+        } else {
+          this.popup = true
         }
+      },
+      popupclose() {
+        this.popup = false
       }
     },
     validations() {
@@ -114,6 +120,13 @@
         <li v-if="v$.message.$error">You need to write a message for us!</li>
         <li v-if="v$.check.$error">Please check the checkbox</li>
       </ul>
+    </div>
+    <div class="popupwrong" v-show="popup">
+      <p>
+        Oh no! Looks like you missed a few steps in the form, please correct the
+        mistakes.
+      </p>
+      <button @click="popupclose">OK</button>
     </div>
   </form>
   <div>
@@ -198,6 +211,18 @@
     width: 40px;
     height: 25px;
     border-color: white;
+  }
+
+  .popupwrong {
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    background-color: rgb(228, 100, 122);
+    border: rgb(9, 9, 9) 5px solid;
+    border-radius: 5%;
+    width: 300px;
+    color: black;
+    font-weight: bolder;
   }
 
   @media (min-width: 400px) {

@@ -17,6 +17,9 @@
       <div class="box">
         <RouterLink to="/admin-products">Products</RouterLink>
       </div>
+      <div class="box">
+        <RouterLink to="/admin-statistics">Statistics</RouterLink>
+      </div>
     </div>
   </div>
 </template>

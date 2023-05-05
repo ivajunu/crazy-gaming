@@ -27,6 +27,7 @@ import Customerscart from './admin/CustomersCartView.vue'
 import CustomersWishlist from './admin/CustomersWishlistView.vue'
 import ProductsAdmin from './admin/ProductsAdminView.vue'
 import Saleschart from './admin/AdminSalesView.vue'
+import Statistics from './admin/StatisticsView.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -131,6 +132,10 @@ export default createRouter({
     {
       component: Saleschart,
       path: '/admin-sales'
+    },
+    {
+      component: Statistics,
+      path: '/admin-statistics'
     }
   ],
   // https://router.vuejs.org/guide/advanced/navigation-guards.html

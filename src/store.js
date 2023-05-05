@@ -17,7 +17,16 @@ const store = createStore({
       },
       contact: {
         email: ''
-      }
+      },
+      logClicks: [],
+      clicks: ''
+      // {
+      //   allproducts: '',
+      //   xbox: '',
+      //   nintendo: '',
+      //   pc: '',
+      //   playstation: ''
+      // }
     }
   },
 
@@ -72,25 +81,17 @@ const store = createStore({
     },
     contactform(state, contact) {
       state.contact = contact
+    },
+    //Diagram
+    statisticsLog(state, routes) {
+      state.logClicks.push(routes)
+      localStorage.setItem('log', JSON.stringify(state.logClicks))
+    },
+    clicksProducts(state, productClicks) {
+      state.clicks = productClicks
+      localStorage.setItem('clicks', JSON.stringify(state.clicks))
     }
   }
 })
 
 export default store
-
-// import { createStore } from 'vuex'
-
-// const mutations = {
-//     gameItems(state, products) {
-//       state.products = products
-//     }
-//   },
-//   state = {
-//     products: []
-//   }
-
-// export default createStore({
-//   mutations,
-//   state,
-//   strict: true
-// })
